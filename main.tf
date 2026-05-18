@@ -80,16 +80,9 @@ module "asr_replication" {
   target_protection_container_id = module.asr_core.pc_secondary_id
 
 
-  //Select target vnet
-  //If same vnet is selected (primary -> primary) same ip address can't be used
-  //If diffrent vnets is selected (primary -> recovery) same ip address can be used
-  //Set recovery_to_same_network variable properly
-  target_network_id        = module.network.primary_vnet_id
-  target_subnet_name       = module.network.primary_subnet_name
-  recovery_to_same_network = true
+  target_network_id  = module.network.primary_vnet_id
+  target_subnet_name = module.network.primary_subnet_name
 
-  //Uncomment in diffrent network recovery
-  # target_static_ip         = module.compute.primary_nic_ip
 
   target_zone = "2"
 
@@ -111,7 +104,6 @@ module "automation" {
 
   dummy_ip_address  = cidrhost(module.network.primary_subnet_cidr, -5)
   recovery_nic_name = "${var.NIC_name}-${var.region}"
-  target_ip_address = module.compute.primary_nic_ip
 
 
 

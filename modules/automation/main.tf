@@ -52,7 +52,6 @@ try {
 
         $nicName         = "${var.target_nic_name}"
         $recoveryNicName = "${var.recovery_nic_name}"
-        $targetIP        = "${var.target_ip_address}"
         $rgName          = "${var.primary_rg_name}"
         $recoveryRgName  = "${var.recovery_rg_name}"
         $dummyIp         = "${var.dummy_ip_address}"

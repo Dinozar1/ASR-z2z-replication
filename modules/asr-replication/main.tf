@@ -17,7 +17,6 @@ resource "azurerm_site_recovery_replicated_vm" "vm_replication" {
     source_network_interface_id = var.source_nic_id
     target_subnet_name          = var.target_subnet_name
 
-    target_static_ip = var.target_static_ip
   }
 
   managed_disk {

@@ -46,7 +46,3 @@ variable "dummy_ip_address" {
 variable "recovery_nic_name" {
   type = string
 }
-
-variable "target_ip_address" {
-  type = string
-}

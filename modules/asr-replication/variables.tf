@@ -77,22 +77,3 @@ variable "target_replica_disk_type" {
   type    = string
   default = "StandardSSD_LRS"
 }
-
-variable "recovery_to_same_network" {
-  type        = bool
-  description = "Will asr recover to the same vnet after failover?"
-}
-
-
-
-variable "target_static_ip" {
-  type    = string
-  default = null
-
-  # validation {
-  #   condition = !(
-  #     var.recovery_to_same_network && var.target_static_ip != null
-  #   )
-  #   error_message = "ASR can not recover to the same network with the same IP address."
-  # }
-}
