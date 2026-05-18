@@ -1,6 +1,5 @@
 variable "replication_name" {
   type    = string
-  default = "vm-replication"
 }
 
 variable "vault_rg_name" {

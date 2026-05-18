@@ -64,6 +64,7 @@ module "asr_replication" {
   vault_rg_name = azurerm_resource_group.rg.name
   vault_name    = module.asr_core.vault_name
   fabric_name   = module.asr_core.fabric_name
+  replication_name = "${var.linux_vm_name}-${var.region}"
 
   source_vm_id  = module.compute.vm_id
   source_nic_id = module.compute.nic_id
