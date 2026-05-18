@@ -1,5 +1,5 @@
 variable "replication_name" {
-  type    = string
+  type = string
 }
 
 variable "vault_rg_name" {

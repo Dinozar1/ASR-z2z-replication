@@ -8,6 +8,13 @@ resource "azurerm_network_interface" "nic_primary_az1" {
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
+
+  lifecycle {
+    ignore_changes = [
+      ip_configuration[0].private_ip_address_allocation,
+      ip_configuration[0].private_ip_address
+    ]
+  }
 }
 
 resource "tls_private_key" "primary_ssh_key" {

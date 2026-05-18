@@ -50,11 +50,12 @@ resource "azurerm_automation_runbook" "release_ip_runbook" {
 try {
     Connect-AzAccount -Identity -ErrorAction Stop
 
-        $nicName         = "nic-primary-az1-polandcentral"
-        $recoveryNicName = "nic-primary-az1-polandcentral"
-        $rgName          = "rg-test-szymon"
-        $recoveryRgName  = "rg-test-szymon-recovery"
-        $dummyIp         = "10.0.1.20"
+        $nicName         = "${var.target_nic_name}"
+        $recoveryNicName = "${var.recovery_nic_name}"
+        $targetIP        = "${var.target_ip_address}"
+        $rgName          = "${var.primary_rg_name}"
+        $recoveryRgName  = "${var.recovery_rg_name}"
+        $dummyIp         = "${var.dummy_ip_address}"
 
         $nic1 = Get-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName -ErrorAction Stop
         $nic2 = Get-AzNetworkInterface -Name $recoveryNicName -ResourceGroupName $recoveryRgName -ErrorAction Stop

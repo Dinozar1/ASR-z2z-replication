@@ -61,9 +61,9 @@ module "asr_core" {
 module "asr_replication" {
   source = "./modules/asr-replication"
 
-  vault_rg_name = azurerm_resource_group.rg.name
-  vault_name    = module.asr_core.vault_name
-  fabric_name   = module.asr_core.fabric_name
+  vault_rg_name    = azurerm_resource_group.rg.name
+  vault_name       = module.asr_core.vault_name
+  fabric_name      = module.asr_core.fabric_name
   replication_name = "${var.linux_vm_name}-${var.region}"
 
   source_vm_id  = module.compute.vm_id
@@ -109,7 +109,7 @@ module "automation" {
   primary_rg_name = azurerm_resource_group.rg.name
   target_nic_name = "${var.NIC_name}-${var.region}"
 
-  dummy_ip_address = cidrhost(module.network.primary_subnet_cidr, 10)
+  dummy_ip_address  = cidrhost(module.network.primary_subnet_cidr, -5)
   recovery_nic_name = "${var.NIC_name}-${var.region}"
   target_ip_address = module.compute.primary_nic_ip
 
